@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>genesis</title>
+  <title>Genesis</title>
+  <link rel="icon" href="https://cdn.discordapp.com/attachments/1194789991281348759/1231822478368837693/image.png?ex=66385b14&is=6625e614&hm=0646e2be61cbe203531e98a5f45c788242051e05ac84d39e98366058d4055c9e" type="image/png">
   <style>
     body {
       margin: 0;
@@ -22,6 +23,7 @@
       align-items: center;
     }
     .content {
+      position: relative;
       font-family: Arial, sans-serif;
       font-size: 48px;
       opacity: 0; /* Initially hidden */
@@ -37,6 +39,24 @@
       font-family: Arial, sans-serif;
       font-size: 24px;
       margin-top: 20px; /* Add spacing between the text */
+    }
+
+    .button {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      padding: 10px 20px;
+      border: 2px solid #fff; /* White outline */
+      border-radius: 5px; /* Rounded corners */
+      background-color: transparent;
+      color: #fff; /* White text */
+      cursor: pointer;
+      transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #fff; /* White background when hovered */
+      color: #000; /* Black text when hovered */
+      border-color: #000; /* Black outline when hovered */
     }
 
     @keyframes fadeIn {
@@ -56,6 +76,7 @@
       <div class="subtext">
         The only Gorilla Tag cheat you'll ever need.
       </div>
+      <button class="button">Info</button>
     </div>
   </div>
 </body>
