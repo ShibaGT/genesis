@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Genesis - AmolexD</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* Align content in a column */
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #000; /* Black background */
+      color: #fff; /* White text */
+    }
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .content {
+      font-family: Arial, sans-serif;
+      font-size: 48px;
+      opacity: 0; /* Initially hidden */
+      animation: fadeIn 1.5s forwards; /* Fade-in animation */
+      padding: 20px; /* Padding around the text */
+      border: 2px solid #fff; /* White outline */
+      border-radius: 10px; /* Rounded corners */
+      box-shadow: 0 0 0 3px #000; /* Black shadow to create an outline effect */
+      text-align: center; /* Center the text */
+    }
+
+    .subtext {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      margin-top: 20px; /* Add spacing between the text */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="content-wrapper">
+    <div class="content">
+      genesis
+      <div class="subtext">
+        The only Gorilla Tag cheat you'll ever need.
+      </div>
+    </div>
+  </div>
+</body>
+</html>
