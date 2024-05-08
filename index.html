@@ -1,83 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Genesis</title>
-  <link rel="icon" href="https://cdn.discordapp.com/attachments/1194789991281348759/1231822478368837693/image.png?ex=66385b14&is=6625e614&hm=0646e2be61cbe203531e98a5f45c788242051e05ac84d39e98366058d4055c9e" type="image/png">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column; /* Align content in a column */
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      background-color: #000; /* Black background */
-      color: #fff; /* White text */
-    }
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .content {
-      position: relative;
-      font-family: Arial, sans-serif;
-      font-size: 48px;
-      opacity: 0; /* Initially hidden */
-      animation: fadeIn 1.5s forwards; /* Fade-in animation */
-      padding: 20px; /* Padding around the text */
-      border: 2px solid #fff; /* White outline */
-      border-radius: 10px; /* Rounded corners */
-      box-shadow: 0 0 0 3px #000; /* Black shadow to create an outline effect */
-      text-align: center; /* Center the text */
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShibaGT Genesis</title>
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    color: #ccc;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease;
+  }
+
+  #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
     }
 
-    .subtext {
-      font-family: Arial, sans-serif;
-      font-size: 24px;
-      margin-top: 20px; /* Add spacing between the text */
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    z-index: 2;
+  }
 
-    .button {
-      font-family: Arial, sans-serif;
-      font-size: 24px;
-      padding: 10px 20px;
-      border: 2px solid #fff; /* White outline */
-      border-radius: 5px; /* Rounded corners */
-      background-color: transparent;
-      color: #fff; /* White text */
-      cursor: pointer;
-      transition: color 0.3s, background-color 0.3s, border-color 0.3s;
-    }
+  .content {
+    text-align: center;
+    z-index: 2;
+  }
 
-    .button:hover {
-      background-color: #fff; /* White background when hovered */
-      color: #000; /* Black text when hovered */
-      border-color: #000; /* Black outline when hovered */
-    }
+  .title {
+    font-size: 3em;
+    color: #66ccff;
+    text-shadow: 0 0 10px #66ccff;
+    z-index: 2;
+  }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+  .subtitle {
+    color: #999;
+    margin-top: -25px; /*this was so fucking annoying*/
+    z-index: 2;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    z-index: 2;
+  }
+
+  .button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #3399ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 0 20px 0 #66ccff;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+  }
+
+  .button:hover {
+    background-color: #0066cc;
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px 0 #66ccff;
+    z-index: 2;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    z-index: 2;
+  }
+
+  .feature {
+    width: 300px;
+    padding: 20px;
+    margin: 0 10px 20px;
+    background-color: #111;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    z-index: 2;
+  }
+
+  .feature h2 {
+    color: #66ccff;
+    text-shadow: 0 0 10px #66ccff;
+    transition: text-shadow 0.3s ease;
+    z-index: 2;
+  }
+
+  .feature p {
+    color: #999;
+    z-index: 2;
+  }
+
+  .feature:hover {
+    transform: translateY(-5px);
+    z-index: 2;
+  }
+
+  .feature:hover h2 {
+    text-shadow: 0 0 20px #66ccff;
+    z-index: 2;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .feature {
+      width: 90%;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="content-wrapper">
-    <div class="content">
-      genesis
-      <div class="subtext">
-        The only Gorilla Tag cheat you'll ever need.
+<div id="particles-js"></div>
+<div class="container">
+  <div class="content">
+    <h1 class="title">ShibaGT Genesis</h1>
+    <p class="subtitle">Modding Reimagined</p>
+    <div class="buttons">
+      <a href="https://spezz.exchange" class="button">Buy Now</a>
+      <a href="https://discord.gg/idkwhattheinviteis" class="button">Discord</a>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <h2>Trusted Legacy</h2>
+        <p>With a legacy rooted in expertise, ShibaGT Genesis stands as a trusted authority in the realm of mod menu development. Since our inception in 2021, we've continuously honed our craft, earning the trust of countless users.</p>
       </div>
-      <button class="button">Info</button>
+      <div class="feature">
+        <h2>Stealth and Reliability</h2>
+        <p>Experience the epitome of undetectability and reliability with our mod menu. Renowned for its stealth capabilities and minimal ban rates, our mod menu ensures a seamless and worry-free gaming experience.</p>
+      </div>
+      <div class="feature">
+        <h2>Unparalleled Quality</h2>
+        <p>At ShibaGT Genesis, we pride ourselves on consistently delivering unparalleled quality updates. Each update undergoes rigorous beta testing to guarantee the utmost excellence in our mod menu.</p>
+      </div>
+      <div class="feature">
+        <h2>Privacy Focused</h2>
+        <p>Genesis Mod Menu Genesis Mod Menu prioritizes privacy, collecting only a unique Hardware ID to prevent key sharing. This approach ensures security without compromising user anonymity or tracking their activities.</p>
+      </div>
     </div>
   </div>
+</div>
+<script src="a.js"></script>
+<script src="b.js"></script>
 </body>
 </html>
