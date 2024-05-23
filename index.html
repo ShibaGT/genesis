@@ -1,159 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShibaGT Genesis</title>
-<style>
-
-  body {
-    margin: 0;
-    padding: 0;
-    background-color: #050505;
-    color: #ccc;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.5s ease;
-  }
-
-  #particles-js {
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        z-index: 1;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GENESIS.MENU</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Unbounded', sans-serif;
+      color: white;
+      text-align: center;
+      overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -o-user-select: none;
     }
 
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    z-index: 2;
-  }
-
-  .content {
-    text-align: center;
-    z-index: 2;
-  }
-
-  .title {
-    font-size: 3em;
-    color: #66ccff;
-    text-shadow: 0 0 10px #66ccff;
-    z-index: 2;
-  }
-
-  .subtitle {
-    color: #999;
-    margin-top: -25px; /*this was so fucking annoying*/
-    z-index: 2;
-  }
-
-  .buttons {
-    margin-top: 20px;
-    z-index: 2;
-  }
-
-  .button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 0 10px;
-    background-color: #3399ff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0 0 20px 0 #66ccff;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    z-index: 2;
-  }
-
-  .button:hover {
-    background-color: #0066cc;
-    transform: translateY(-2px);
-    box-shadow: 0 0 40px 0 #66ccff;
-    z-index: 2;
-  }
-
-  .features {
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    flex-wrap: wrap;
-    z-index: 2;
-  }
-
-  .feature {
-    width: 300px;
-    padding: 20px;
-    margin: 0 10px 20px;
-    background-color: #111;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    z-index: 2;
-  }
-
-  .feature h2 {
-    color: #66ccff;
-    text-shadow: 0 0 10px #66ccff;
-    transition: text-shadow 0.3s ease;
-    z-index: 2;
-  }
-
-  .feature p {
-    color: #999;
-    z-index: 2;
-  }
-
-  .feature:hover {
-    transform: translateY(-5px);
-    z-index: 2;
-  }
-
-  .feature:hover h2 {
-    text-shadow: 0 0 20px #66ccff;
-    z-index: 2;
-  }
-
-  @media only screen and (max-width: 600px) {
-    .feature {
-      width: 90%;
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
     }
-  }
-</style>
+
+    #content {
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    #header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    #header nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-shadow: 0 0 10px #3045ff, 0 0 20px #3045ff, 0 0 30px #3045ff, 0 0 40px #3045ff, 0 0 50px #3045ff;
+    }
+
+    h1 span.darkblue {
+      color: darkblue;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+
+    .blueshitbuttonthing {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      background: #3045ff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .blueshitbuttonthing:hover {
+      background: #3045ff;
+    }
+
+    .speck {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #3045ff;
+      animation: fall 7s linear infinite;
+      top: -2px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-2px);
+      }
+
+      100% {
+        transform: translateY(calc(100vh + 4px));
+      }
+    }
+
+    .container {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.8);
+      margin: 20px 0;
+    }
+  </style>
 </head>
+
 <body>
-<div id="particles-js"></div>
-<div class="container">
-  <div class="content">
-    <h1 class="title">ShibaGT Genesis</h1>
-    <p class="subtitle">Modding Reimagined</p>
-    <div class="buttons">
-      <a href="https://spezz.exchange/store/store/product/241-shibagt-genesis-mod-menu/" class="button">Buy Now</a>
-      <a href="https://discord.gg/shibagtgenesis" class="button">Discord</a>
+  <div id="particles-js"></div>
+  <div id="content">
+    <div id="main-content">
+      <h1>GENESIS<span class="darkblue">.MENU</span></h1>
+      <p>Enhance your Gorilla Tag gameplay with Genesis, with improved speed, crashers, very easy and quick to use, and powerful game-changing options.</p>
+      <a href="https://discord.com/invite/shibagtgenesis" class="blueshitbuttonthing">Discord</a>
+      <a href="https://spezz.exchange/store/store/product/241-shibagt-genesis-mod-menu/" class="blueshitbuttonthing">Purchase</a>
     </div>
-    <div class="features">
-      <div class="feature">
-        <h2>Trusted Background</h2>
-        <p>Since 2021, ShibaGT Mod Menus has been a trusted expert in mod menu development. We've earned the trust of many users by refining our skills over time.</p>
-      </div>
-      <div class="feature">
-        <h2>Stealth and Reliability</h2>
-        <p>Our mod menu offers top-notch stealth and reliability, keeping you safe from bans and making your gaming experience smooth and stress-free.</p>
-      </div>
-      <div class="feature">
-        <h2>Unparalleled Quality</h2>
-        <p>At ShibaGT Genesis, we're proud to always provide top-quality updates. Each update goes through thorough beta testing to ensure the best performance for our mod menu.</p>
-      </div>
-      <div class="feature">
-        <h2>Privacy Focused</h2>
-        <p>ShibaGT Genesis Mod Menu prioritizes privacy by only collecting a unique Hardware ID to prevent key sharing. This keeps user anonymity intact and doesn't track their activities, ensuring both security and privacy.</p>
-      </div>
-    </div>
-  </div>
-</div>
-<script src="a.js"></script>
-<script src="b.js"></script>
-</body>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden-content').forEach(section => {
+          observer.observe(section);
+        });
+      });
+
+      function createSpeck() {
+        const speck = document.createElement('div');
+        speck.className = 'speck';
+        speck.style.left = Math.random() * window.innerWidth + 'px';
+        document.body.appendChild(speck);
+
+        speck.addEventListener('animationend', () => {
+          speck.remove();
+        });
+      }
+
+      function createSpecksInterval() {
+        setInterval(createSpeck, 120);
+      }
+
+      window.onload =  function() {
+                  createSpecksInterval();
+                  document.title = "GENESIS.MENU";
+              };
+
+              document.onkeydown = function(e) {
+               if (e.ctrlKey && (e.shiftKey || e.keyCode === 73 || e.keyCode === 85)) {
+              return false;
+              }
+            };
+
+              document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+              });
+          </script>
+      </body>
 </html>
