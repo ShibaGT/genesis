@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    color: #fff;
+    background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    user-select: none;
+}
+
+#bgvid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    filter: brightness(0.3);
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar.transparent { background-color: transparent; box-shadow: none; }
+.navbar.solid { background: rgba(21, 21, 236, 0.85); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
+
+.logo {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #1515ec;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90vh;
+    text-align: center;
+    margin-left: 300px;
+    margin-bottom: 17px;
+}
+
+.hero-section h1 {
+    font-size: 64px;
+    font-weight: 700;
+    color: #1515ec;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    animation: fadeSlideIn 2s ease-out;
+}
+
+.hero-video video {
+    margin-right: 200px;
+    width: 700px;
+    border-radius: 20px;
+}
+
+@keyframes fadeSlideIn {
+    0% { opacity: 0; transform: translateY(-50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-section p {
+    font-size: 20px;
+    color: #d1d1d1;
+    margin-bottom: 30px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    font-size: 20px;
+    padding: 16px 36px;
+    background: linear-gradient(45deg, #1515ec, #1010c5);
+    border: none;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn i { margin-right: 10px; font-size: 1.2em; }
+
+.btn:hover {
+    background: linear-gradient(45deg, #1010c5, #0b0b99);
+    transform: scale(1.07);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.features-section, .reviews-section {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #0b0b99;
+}
+
+.features-section h2, .reviews-section h2 { font-size: 42px; margin-bottom: 40px; }
+
+.features-list, .reviews-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+
+.feature-item, .review-item {
+    background: #1515ec;
+    padding: 30px;
+    border-radius: 10px;
+    width: 320px;
+    transition: transform 0.2s;
+}
+
+.feature-item:hover, .review-item:hover { transform: translateY(-5px); }
+
+.feature-item i, .review-item img {
+    font-size: 36px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.review-item img { width: 60px; height: 60px; border-radius: 50%; }
+
+.review-content { text-align: left; }
+.review-stars { color: #fcd34d; margin-top: 10px; }
+
+.animate-on-load, .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s, transform 0.8s;
+}
+
+.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
