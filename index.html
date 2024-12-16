@@ -22,123 +22,493 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
     <meta name="description" content="Genesis: The best Gorilla Tag cheat on the market!">
     <meta name="keywords" content="Genesis, Shiba Genesis, gorilla tag cheat, mod menu, gt mod menu, gorilla tag mod menu">
     <meta name="author" content="Shiba">
-    <meta content="Genesis" property="og:title">
-    <meta content="The best Gorilla Tag cheat on the market!" property="og:description">
-    <meta content="/favicon.png" property="og:image">
-    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta content="Genesis" property="og:title" />
+    <meta content="The BEST gorilla tag cheat on the market!" property="og:description" />
+    <meta content="https://genesis.menu/" property="og:url" />
+    <meta content="/assets/favicon.png" property="og:image" />
+    <meta content="#1515ec" data-react-helmet="true" name="theme-color" />
+    <meta content="website" property="og:type">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     <title>Genesis | Home</title>
-    <link rel="stylesheet" href="/assets/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/simplebar@5.3.2/dist/simplebar.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@5.3.2/dist/simplebar.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            height: 100%;
+            color: #fff;
+            background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .simplebar-scrollbar::before {
+            background-color: #1515ec;
+        }
+
+        .simplebar-track {
+            background: transparent;
+        }
+
+        .simplebar-scrollbar {
+            width: 12px;
+        }
+
+        .scroll-container {
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        #bgvid {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            filter: brightness(0.3);
+        }
+
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(10px);
+            z-index: -1;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .navbar.transparent { background-color: transparent; box-shadow: none; }
+        .navbar.solid { background: rgba(21, 21, 236, 0.85); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
+
+        .logo {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            position: relative;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #1515ec;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90vh;
+            text-align: center;
+            margin-left: 300px;
+            margin-bottom: 17px;
+        }
+
+        .hero-section h1 {
+            font-size: 64px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #1717ff, #0e0ec2, #0000ff, #4f4fff);
+            background-size: 400% 400%;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 10px rgba(2, 21, 132, 0.5);
+            animation: fadein 2s ease-out, gradient 5s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75% {
+                background-position: 50% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-video video {
+            margin-right: 200px;
+            width: 700px;
+            border-radius: 20px;
+        }
+
+        @keyframes fadein {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section p {
+            font-size: 20px;
+            color: #d1d1d1;
+            margin-bottom: 30px;
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        a.btn {
+            font-size: 20px;
+            padding: 16px 36px;
+            background: linear-gradient(45deg, #1515ec, #1010c5);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        a.btn i {
+            margin-right: 10px;
+        }
+
+        a.btn:hover {
+            background: linear-gradient(45deg, #1010c5, #0b0b99);
+            transform: scale(1.07);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        a.btn:hover i, a.btn:hover span {
+            transform: none; 
+        }
+
+        .features-section, .reviews-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #0b0b99;
+        }
+
+        .features-section h2, .reviews-section h2 { font-size: 42px; margin-bottom: 40px; }
+
+        .features-list, .reviews-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .reviews-list { animation: scroll 10s linear infinite; width: max-content; min-width: 200px; }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .feature-item, .review-item {
+            background: #1515ec;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+        }
+
+        .feature-item i, .review-item img {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .review-item img { width: 60px; height: 60px; border-radius: 50%; }
+
+        .review-content { text-align: left; }
+        .review-stars { color: #fcd34d; margin-top: 10px; }
+
+        .animate-on-load, .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .animate-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-not-available {
+            display: none;
+            text-align: center;
+            background-color: #1515ec;
+            color: #ffffff;
+            padding: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 9999;
+            font-family: 'Poppins', sans-serif;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-not-available .message-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .mobile-not-available h2 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .mobile-not-available p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            color: #d1d1d1;
+        }
+
+        .mobile-not-available .btn {
+            display: inline-block;
+            font-size: 18px;
+            background: linear-gradient(45deg, #1515ec, #1414cd);
+            padding: 12px 30px;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-not-available {
+                display: flex;
+            }
+            .scroll-container {
+                display: none;
+            }
+        }
+
+    </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
+    <div class="mobile-not-available">
+        <div class="message-content">
+            <h2>Genesis</h2>
+            <p>We're currently working on a mobile version of the site. In the meantime, buy Shiba Genesis today!</p>
+            <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/" class="btn"><i class="fas fa-shopping-cart"></i>Buy</a>
+        </div>
+    </div>    
+    
     <video autoplay muted loop id="bgvid"><source src="https://cdn.pixabay.com/video/2024/05/05/210824_large.mp4" type="video/mp4"></video>
     <div id="overlay"></div>
 
-    <header class="navbar transparent" id="navbar">
-        <div class="logo"><a href="#home">Genesis</a></div>
-        <nav class="nav-links">
-            <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/"><i class="fas fa-shopping-cart"></i> Buy</a>
-            <a href="#features"><i class="fas fa-cogs"></i> Features</a>
-            <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
-        </nav>
-    </header>
-
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h1 class="animate-on-load">Genesis</h1>
-            <p class="animate-on-load">The Best Gorilla Tag Cheat on the Market!</p>            
-            <div class="btn-container">
-                <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/">
-                    <button class="btn">
+    <div class="scroll-container" data-simplebar>
+        <header class="navbar transparent" id="navbar">
+            <div class="logo"><a href="#home">Genesis</a></div>
+            <nav class="nav-links">
+                <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/"><i class="fas fa-shopping-cart"></i> Buy</a>
+                <a href="#features"><i class="fas fa-cogs"></i> Features</a>
+                <a href="#reviews"><i class="fas fa-star"></i> Reviews</a>
+            </nav>
+        </header>
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1 class="animate-on-load">Genesis</h1>
+                <p>The Best Gorilla Tag Cheat on the Market!</p>            
+                <div class="btn-container">
+                    <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/" class="btn">
                         <i class="fas fa-shopping-cart"></i> Buy Now
-                    </button>
-                </a>
-                <a href="https://discord.gg/shibagtgenesis">
-                    <button class="btn">
+                    </a>
+                    <a href="https://discord.gg/shibagtgenesis" class="btn">
                         <i class="fab fa-discord"></i> Join Discord
-                    </button>
-                </a>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div class="hero-video">
-            <video autoplay muted loop>
-                <source src="/assets/vid1.mp4" type="video/mp4">
-            </video>
-        </div>
-    </section>    
-
-    <section id="features" class="features-section">
-        <h2>Features</h2>
-        <div class="features-list">
-            <div class="feature-item animate-on-scroll">
-                <i class="fas fa-eye-slash"></i>
-                <h3 style="margin-bottom: 10px;">Undetected Mods</h3>
-                <p>Our mods are carefully made to stay undetected while providing cool features to make modding more fun!</p>
+            <div class="hero-video">
+                <video autoplay muted loop>
+                    <source src="/assets/vid1.mp4" type="video/mp4">
+                </video>
             </div>
-            <div class="feature-item animate-on-scroll">
-                <i class="fas fa-window-maximize"></i>
-                <h3 style="margin-bottom: 10px;">Clean UI & Menu</h3>
-                <p>Enjoy a sleek and user-friendly interface that ensures easy use.</p>
+        </section>    
+    
+        <section id="features" class="features-section">
+            <h2>Features</h2>
+            <div class="features-list">
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-eye-slash"></i>
+                    <h3 style="margin-bottom: 10px;">Undetected Mods</h3>
+                    <p>Our mods are carefully made to stay undetected while providing cool features to make modding more fun!</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-window-maximize"></i>
+                    <h3 style="margin-bottom: 10px;">Clean UI & Menu</h3>
+                    <p>Enjoy a sleek and user-friendly interface that ensures easy use.</p>
+                </div>
+                <div class="feature-item animate-on-scroll">
+                    <i class="fas fa-shield-virus"></i>
+                    <h3 style="margin-bottom: 10px;">Safe and Secure</h3>
+                    <p>Our menu is thoroughly tested to be free from viruses so you can have a secure experience.</p>
+                </div>
             </div>
-            <div class="feature-item animate-on-scroll">
-                <i class="fas fa-shield-virus"></i>
-                <h3 style="margin-bottom: 10px;">Safe and Secure</h3>
-                <p>Our menu is thoroughly tested to be free from viruses so you can have a secure experience.</p>
-            </div>
-        </div>
-    </section>    
-
-    <section id="reviews" class="reviews-section">
-        <h2>Reviews</h2>
-        <p style="margin-bottom: 50px; margin-top: -45px;">More reviews over at <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/?tab=reviews" style="color: white;">Spezz</a></p>
-        <div class="reviews-list animate-on-scroll">
-            <div class="review-item">
-                <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%236fc462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Reviewer 1">
-                <div class="review-content ">
-                    <strong>lucassss</strong>
-                    <p>"The mod menu is AMAZING. It has so many great features such as crash mods, kill mods for battle, and other cool mods. I 100% think you should buy it."</p>
-                    <div class="review-stars">
-                        ★★★★★
+        </section>    
+    
+        <section id="reviews" class="reviews-section">
+            <h2>Reviews</h2>
+            <p style="margin-bottom: 50px; margin-top: -45px;">More reviews over at <a href="https://spezz.exchange/store/product/241-shibagt-genesis-mod-menu/?tab=reviews" style="color: white;">Spezz</a></p>
+            <div class="reviews-list animate-on-scroll">
+                <div class="review-item">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%236fc462%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3EL%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Reviewer 1">
+                    <div class="review-content ">
+                        <strong>lucassss</strong>
+                        <p>"The mod menu is AMAZING. It has so many great features such as crash mods, kill mods for battle, and other cool mods. I 100% think you should buy it."</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ac62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    <div class="review-content">
+                        <strong>Stealthyman</strong>
+                        <p>"Really good menu its got some really cool mods and OP mods too and tons of customisation really recommend this menu. "</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <img src="https://spezz.exchange/uploads/monthly_2024_09/imported-photo-71904.thumb.jpeg.571debe7d3f2bbc7e09f5a930f3d6007.jpeg">
+                    <div class="review-content">
+                        <strong>SlothRR</strong>
+                        <p>"this menu is so sigma, amazing features, very op, awesome sauce. 11/10 🔥🔥😍🥶🥶"</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462be%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    <div class="review-content">
+                        <strong>souzn</strong>
+                        <p>"ima just say, best gt menu on the market. got the clean layout of a normal panel and those classic shiba mods everyone loves. would def reccomend."</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <img src="https://spezz.exchange/uploads/monthly_2024_06/20d225fbfd26ddf8c47cdbb0b81cc662.thumb.jpg.00533d469707e576c3241194348fe2dc.jpg">
+                    <div class="review-content">
+                        <strong>zvbexxxx</strong>
+                        <p>"Really OP for messing with kids in lobbies, but also its really good for casual modding too. Its basically an All in one mod menu 🤷‍♂️"</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
+                    </div>
+                </div>
+                <div class="review-item">
+                    <img src="https://spezz.exchange/uploads/monthly_2024_09/imported-photo-72514.thumb.png.504b5770b33a5d480d8cd20d915c1270.png">
+                    <div class="review-content">
+                        <strong>max cool</strong>
+                        <p>"it is the best menu i have ever seen for just 20$ your most likely like 20$ for a menu thats crazy but it is worth every penny fr"</p>
+                        <div class="review-stars">
+                            ★★★★★
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="review-item">
-                <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ac62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E">
-                <div class="review-content">
-                    <strong>Stealthyman</strong>
-                    <p>"Really good menu its got some really cool mods and OP mods too and tons of customisation really recommend this menu. "</p>
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-                </div>
-            </div>
-            <div class="review-item">
-                <img src="https://spezz.exchange/uploads/monthly_2024_09/imported-photo-71904.thumb.jpeg.571debe7d3f2bbc7e09f5a930f3d6007.jpeg">
-                <div class="review-content">
-                    <strong>SlothRR</strong>
-                    <p>"this menu is so sigma, amazing features, very op, awesome sauce. 11/10 🔥🔥😍🥶🥶"</p>
-                    <div class="review-stars">
-                        ★★★★★
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    
+        <footer style="background: #1515ec; color: #d1d1d1; padding: 20px; text-align: center;">
+            <p>Made with ❤️ by Moo</p>
+        </footer>        
+    </div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            if (window.scrollY === 0) {
-                document.getElementById('navbar').classList.add('transparent');
-                document.getElementById('navbar').classList.remove('solid');
-            } else {
-                document.getElementById('navbar').classList.remove('transparent');
-                document.getElementById('navbar').classList.add('solid');
-            }
+        const reviews = document.querySelector('.reviews-list');
+        reviews.innerHTML += reviews.innerHTML;
+        reviews.addEventListener('mouseover', () => {
+            reviews.style.animationPlayState = 'paused';
+        });
+
+        reviews.addEventListener('mouseout', () => {
+            reviews.style.animationPlayState = 'running';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            document.querySelector('.simplebar-content').addEventListener('scroll', () => {
+                if (simplebarContent.scrollTop === 0) {
+                    navbar.classList.add('transparent');
+                    navbar.classList.remove('solid');
+                } else {
+                    navbar.classList.remove('transparent');
+                    navbar.classList.add('solid');
+                }
+            });
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-            const elements = document.querySelectorAll('.animate-on-load');
-            elements.forEach(el => {
+            document.querySelectorAll('.animate-on-load').forEach(el => {
                 el.classList.add('animate-visible');
             });
         });
@@ -151,6 +521,23 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                event.preventDefault();
+            }
+        });
+
+        (function() {
+            (function protect() {
+                if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160) {
+                    while (true) {}
+                } else {
+                    setTimeout(protect, 100);
+                }
+            })();
+        })();
     </script>
 </body>
 </html>
