@@ -32,322 +32,8 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
     <title>Genesis | Home</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/simplebar@5.3.2/dist/simplebar.min.css" rel="stylesheet">
+    <link href="assets/styles/index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/simplebar@5.3.2/dist/simplebar.min.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            height: 100%;
-            color: #fff;
-            background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-            overflow: hidden;
-            user-select: none;
-        }
-
-        .simplebar-scrollbar::before {
-            background-color: #1515ec;
-        }
-
-        .simplebar-track {
-            background: transparent;
-        }
-
-        .simplebar-scrollbar {
-            width: 12px;
-        }
-
-        .scroll-container {
-            height: 100vh;
-            overflow-y: auto;
-            overflow-x: hidden;
-        }
-
-        #bgvid {
-            position: fixed;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            z-index: -1;
-            filter: brightness(0.3);
-        }
-
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            backdrop-filter: blur(10px);
-            z-index: -1;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 50px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-
-        .navbar.transparent { background-color: transparent; box-shadow: none; }
-        .navbar.solid { background: rgba(21, 21, 236, 0.85); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
-
-        .logo {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .logo a {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 18px;
-            position: relative;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: color 0.3s, background-color 0.3s;
-        }
-
-        .nav-links a:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #1515ec;
-            transform: scaleX(0);
-            transition: transform 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            transform: scaleX(1);
-        }
-
-        .hero-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 90vh;
-            text-align: center;
-            margin-left: 300px;
-            margin-bottom: 17px;
-        }
-
-        .hero-section h1 {
-            font-size: 64px;
-            font-weight: 700;
-            background: linear-gradient(45deg, #1717ff, #0e0ec2, #0000ff, #4f4fff);
-            background-size: 400% 400%;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 4px 10px rgba(2, 21, 132, 0.5);
-            animation: fadein 2s ease-out, gradient 5s ease infinite;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            25% {
-                background-position: 50% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            75% {
-                background-position: 50% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        .hero-video video {
-            margin-right: 200px;
-            width: 700px;
-            border-radius: 20px;
-        }
-
-        @keyframes fadein {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-section p {
-            font-size: 20px;
-            color: #d1d1d1;
-            margin-bottom: 30px;
-        }
-
-        .btn-container {
-            display: flex;
-            gap: 20px;
-        }
-
-        a.btn {
-            font-size: 20px;
-            padding: 16px 36px;
-            background: linear-gradient(45deg, #1515ec, #1010c5);
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        a.btn i {
-            margin-right: 10px;
-        }
-
-        a.btn:hover {
-            background: linear-gradient(45deg, #1010c5, #0b0b99);
-            transform: scale(1.07);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        a.btn:hover i, a.btn:hover span {
-            transform: none; 
-        }
-
-        .features-section, .reviews-section {
-            padding: 80px 20px;
-            text-align: center;
-            background-color: #0b0b99;
-        }
-
-        .features-section h2, .reviews-section h2 { font-size: 42px; margin-bottom: 40px; }
-
-        .features-list, .reviews-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
-        .reviews-list { animation: scroll 10s linear infinite; width: max-content; min-width: 200px; }
-
-        @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .feature-item, .review-item {
-            background: #1515ec;
-            padding: 30px;
-            border-radius: 10px;
-            width: 320px;
-        }
-
-        .feature-item i, .review-item img {
-            font-size: 36px;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-
-        .review-item img { width: 60px; height: 60px; border-radius: 50%; }
-
-        .review-content { text-align: left; }
-        .review-stars { color: #fcd34d; margin-top: 10px; }
-
-        .animate-on-load, .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s, transform 0.8s;
-        }
-
-        .animate-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .mobile-not-available {
-            display: none;
-            text-align: center;
-            background-color: #1515ec;
-            color: #ffffff;
-            padding: 50px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 9999;
-            font-family: 'Poppins', sans-serif;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .mobile-not-available .message-content {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .mobile-not-available h2 {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .mobile-not-available p {
-            font-size: 18px;
-            margin-bottom: 25px;
-            line-height: 1.6;
-            color: #d1d1d1;
-        }
-
-        .mobile-not-available .btn {
-            display: inline-block;
-            font-size: 18px;
-            background: linear-gradient(45deg, #1515ec, #1414cd);
-            padding: 12px 30px;
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            .mobile-not-available {
-                display: flex;
-            }
-            .scroll-container {
-                display: none;
-            }
-        }
-
-    </style>
 </head>
 <body>
     <div class="mobile-not-available">
@@ -358,7 +44,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
         </div>
     </div>    
     
-    <video autoplay muted loop id="bgvid"><source src="https://cdn.pixabay.com/video/2024/05/05/210824_large.mp4" type="video/mp4"></video>
+    <video autoplay muted loop id="bgvid"><source src="assets/videos/website_background.mp4" type="video/mp4"></video>
     <div id="overlay"></div>
 
     <div class="scroll-container" data-simplebar>
@@ -385,7 +71,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
             </div>
             <div class="hero-video">
                 <video autoplay muted loop>
-                    <source src="/assets/vid1.mp4" type="video/mp4">
+                    <source src="assets/videos/vid1.mp4" type="video/mp4">
                 </video>
             </div>
         </section>    
@@ -426,7 +112,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
                     </div>
                 </div>
                 <div class="review-item">
-                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ac62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23ac62c4%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Reviewer 2">
                     <div class="review-content">
                         <strong>Stealthyman</strong>
                         <p>"Really good menu its got some really cool mods and OP mods too and tons of customisation really recommend this menu. "</p>
@@ -436,7 +122,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
                     </div>
                 </div>
                 <div class="review-item">
-                    <img src="https://spezz.exchange/uploads/monthly_2024_09/imported-photo-71904.thumb.jpeg.571debe7d3f2bbc7e09f5a930f3d6007.jpeg">
+                    <img src="assets/avatars/SlothRR.jpeg" alt="Reviewer 3">
                     <div class="review-content">
                         <strong>SlothRR</strong>
                         <p>"this menu is so sigma, amazing features, very op, awesome sauce. 11/10 🔥🔥😍🥶🥶"</p>
@@ -446,7 +132,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
                     </div>
                 </div>
                 <div class="review-item">
-                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462be%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E">
+                    <img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201024%201024%22%20style%3D%22background%3A%23c462be%22%3E%3Cg%3E%3Ctext%20text-anchor%3D%22middle%22%20dy%3D%22.35em%22%20x%3D%22512%22%20y%3D%22512%22%20fill%3D%22%23ffffff%22%20font-size%3D%22700%22%20font-family%3D%22-apple-system%2C%20BlinkMacSystemFont%2C%20Roboto%2C%20Helvetica%2C%20Arial%2C%20sans-serif%22%3ES%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Reviewer 4">
                     <div class="review-content">
                         <strong>souzn</strong>
                         <p>"ima just say, best gt menu on the market. got the clean layout of a normal panel and those classic shiba mods everyone loves. would def reccomend."</p>
@@ -456,7 +142,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
                     </div>
                 </div>
                 <div class="review-item">
-                    <img src="https://spezz.exchange/uploads/monthly_2024_06/20d225fbfd26ddf8c47cdbb0b81cc662.thumb.jpg.00533d469707e576c3241194348fe2dc.jpg">
+                    <img src="assets/avatars/zvbexxxx.jpg" alt="Reviewer 5">
                     <div class="review-content">
                         <strong>zvbexxxx</strong>
                         <p>"Really OP for messing with kids in lobbies, but also its really good for casual modding too. Its basically an All in one mod menu 🤷‍♂️"</p>
@@ -466,7 +152,7 @@ $$ |  $$ |$$   ____|$$ |  $$ |$$   ____| \____$$\ $$ | \____$$\
                     </div>
                 </div>
                 <div class="review-item">
-                    <img src="https://cdn.discordapp.com/avatars/714633440816791672/4cf655d914459eef0238d51f9e0396f6.png?size=1024&format=png">
+                    <img src="assets/avatars/iiDK.png" alt="Reviewer 6">
                     <div class="review-content">
                         <strong>iiDk</strong>
                         <p>"this menu is 100x better than my menu/iis stupid menu 500/10 would recommend"</p>
